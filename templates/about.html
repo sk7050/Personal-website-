@@ -1,0 +1,87 @@
+{% extends 'base.html'%}
+
+{% block title%}
+   about
+{% endblock %}
+
+{% block contant%}
+<html>
+<head>
+
+<title>About</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+ <style>
+  
+  html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+  body{
+ 
+  margin:.1px;
+  background-image: url('https://lh3.googleusercontent.com/pw/ACtC-3eOCb1_k72YTtj4jWpCbPDcro6K_P-FQ0PhKUu-QQp7-lgvDAa4j33KZWI4JUHpd-9IE-vnIJxXCyM3cJWNKZOE5T07bXYHRB4kczwXU2gCpzJ8V7J5zOUPa5cHiBG9NiXXBbo3mP5IU70M_DFkUexN=w1024-h576-no?authuser=0');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  }
+.sk p {
+  
+   width: 1800px;
+padding-top:0px;
+padding-left:700px;
+padding-right:400px;
+}
+p {
+        
+        width: 1100px;
+        color:black;
+        padding-top: 50px;
+        
+        padding-right:80px;
+        padding-left:620px;
+        
+      }
+footer {
+   margin-top: 300px;
+   
+   color: lightcyan;
+
+
+
+      }
+
+   </style>  
+   <body>
+   
+   <p>{{ myself }}</p>
+   
+   <form class="sk" method="POST">
+      {% csrf_token %}
+     <p style="color: rgb(171, 165, 190); font-size: larger;font-family:cursive; font-style: italic; text-decoration-line: underline;">Contact with me for programming related query:</p>
+   {{Form.as_p}}
+   <button  type="submit" style="margin-left:900px;">Send</button>
+   <p>{{ message }}</p>
+</form>
+{% if alert == "1" %}
+<script>
+   alert('Message Sucessfully Sends')
+</script>
+
+{% endif %}
+</body>
+
+{% for i in details %}
+<footer class="w3-container w3-teal w3-center w3-margin-top">
+   <h5>Find me on social media.</h5>
+  <a href="{{ i.Fb_Urls }}"><i class="fa fa-facebook-official" style="font-size:24px;color:rgb(252, 252, 252)"></i></a>
+   <a href="{{ i.Link_Urls }}"><i class="fa fa-linkedin" style="font-size:24px;color:rgb(252, 252, 252)"></i></a>
+   <h6>&copy; Shaikh Abu Faisal</h6>
+   <h6>Phone Number :{{ i.Phone_Number }}</h6>
+   <h6>Email ID     :{{ i.Email_Number }}</h6>
+ </footer>
+ {% endfor %}
+</html>
+
+{% endblock %}

@@ -1,0 +1,173 @@
+{% extends 'base.html'%}
+
+{% block title%}
+My Interest
+{% endblock %}
+{% block contant%}
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    
+    [class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+    html {
+      font-family: "Lucida Sans", sans-serif;
+    }
+    
+    .header {
+      background-color: #9933cc;
+      color: #ffffff;
+      padding: 15px;
+    }
+    
+    .menu ul {
+      list-style-type: none;
+      margin-left:15px;
+      margin-top:5px;
+      padding-left:15px;
+    }
+    
+    .menu li {
+      padding: 8px;
+      margin-bottom: 7px;
+      background-color: #33b5e5;
+      color: #e9eef1;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+    
+    .menu li:hover {
+      background-color: #0099cc;
+    }
+    .card {
+
+      border-style:groove;
+      border-radius: 40 px;
+      border-color:cyan;
+     
+    }
+    .card ul {
+      list-style-type: none;
+      margin: 5 px ;
+      padding: 5 px;
+      border-style: groove;
+      border-radius: 40 px;
+      border-color:cyan;
+        
+     
+    }
+    .card li {
+      padding:0 px;
+      margin-top:0px;
+      margin-bottom: 3px;
+      margin-left: 10px;
+      margin-right: 2px;
+      background-color: #33b5e5;
+      color: #ffffff;
+      
+      background-color: rgba(255, 255, 255, .15); 
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+    .card img {
+  width:100%;
+  height:auto;
+}
+    
+    </style>
+    </head>
+    <body style="background-color:lightblue;">
+    
+    <div class="header">
+      <h1>My Personal Projects</h1>
+    </div>
+    
+    <div class="row"> 
+      <div class="col-s-3 menu" >
+        <ul>
+          {% for j in project_cat %}
+           <li style="color: white; ">{{ j.Project_catagory_name }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      
+      
+        {% for i in Personal_project %} 
+      <div class="col-s-8">
+        <div class="card">
+          
+          <ul style="background-color:chartreuse;">
+            <h4 style="font-family: 'Courier New', Courier, monospace;">{{i.Name}} </h4>
+          </ul>
+          <ul>
+              <p style="font-family: monospace; font-size:x-large; color:#9933cc; text-decoration: underline;">Description:</p>
+            <p style="font-family: 'Courier New', Courier, monospace;">{{i.Description}} </p>
+            
+            <p> <h6 style="color: cornflowerblue;  text-decoration: underline;"> programming language:</h6>{{ i.Language }}</p>
+            <p> <h6 style="color: cornflowerblue;  text-decoration: underline;">Code Link:</h6>
+              <a href="{{ i.File_url }}">--Link--</a>
+              {% for j in project_cat %}
+              {% if j.Project_catagory_name == "Web Development" %}
+              <p> <h6 style="color: cornflowerblue;  text-decoration: underline;">Website Link:</h6>
+                <a href="{{ i.web_url }}">{{ i.web_url }}</a>
+                {% endif %}
+                {% endfor %}
+            </p>
+            
+        </ul>
+          
+             <li>
+            <iframe src="{{i.vid_url}}" width="100%", height="400px"></iframe>
+            
+          </li>
+          
+        
+        </div>
+        
+        
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+  
+{% endblock %}

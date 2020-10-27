@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+
+{% block title%}
+   my_Cv
+{% endblock %}
+{% block contant%}
+
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body >
+
+  <h1>{{my_cv.0.cv_Name}}</h1>
+  <embed type="application/pdf" src="{{my_cv.0.Sk_cv.url}}"  style="width:100%; height:1200px;"> </embed>
+  
+
+</body>
+</html>
+
+
+{% endblock %}
+
+

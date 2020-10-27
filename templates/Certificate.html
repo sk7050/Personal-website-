@@ -1,0 +1,90 @@
+{% extends 'base.html'%}
+
+{% block title%}
+   My Certificate
+{% endblock %}
+{% block contant%}
+<main role="main">
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1>Academic certificates</h1>
+        <p class="lead text-muted"></p>
+        
+      </div>
+    </section>
+  
+    <div class="album py-5 bg-light">
+      <div class="container">
+  
+        <div class="row">
+          {% for i in certificates %} 
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+             <img style="width: 100%; height=200%;" src="{{i.Certificate_Image.url}}" alt="">
+              <div class="card-body">
+                <a href="/cerdetails/{{i.pk}}">{{i.Exam_Name}}</a>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          </div>
+  
+          
+      </div>
+    </div>
+  
+  </main>
+  
+  <section class="text-center">
+    <div class="container">
+      <h3 style="text-decoration-line: underline;">Online Course certificates</h3>
+      <p class="lead text-muted"></p>
+      
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+        {% for i in Online_Course %} 
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+           <img style="width: 100%; height=200%;" src="{{i.Course_Image.url}}" alt="">
+            <div class="card-body">
+              <a href="/Coursedetails/{{i.pk}}">{{i.Course_Name}}</a>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+
+        
+    </div>
+  </div>
+
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+      <p> &copy; Shaikh Abu Faisal</p>
+     
+    </div>
+  </footer>
+
+{% endblock %}

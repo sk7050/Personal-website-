@@ -1,0 +1,67 @@
+{% extends 'base.html'%}
+
+{% block title%}
+   My Certificate
+{% endblock %}
+
+{% block contant%}
+<main role="main">
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1>{{certificates.Course_Name}}</h1>
+        <p class="lead text-muted"></p>
+        
+      </div>
+    </section>
+  
+    <div class="album py-5 bg-light">
+      <div class="container">
+  
+        <div class="row">
+          
+          <div class="col-md-8">
+            <div class="card mb-8 shadow-sm">
+             <img style="width: 100%; height=200%;" src="{{certificates.Course_Image.url}}" alt="">
+              <div class="card-body"  style="border-style: groove  ; text-align: center; " >
+                <h7 style="text-align: center;">{{certificates.Course_Name}}</h7>
+               
+                 {% if certificates.pk == 3 %}
+              <h6 style="font-size: medium ;border-style: groove  ;">Institute Name : {{certificates.Institute_Name}}</h6>
+               <h6 style="font-size: medium ;border-style: groove ;"> Result :  {{certificates.Result}} </h6>
+
+               {% else %}
+               <h6 style="font-size: medium ;border-style: groove ;">Institute Name : {{certificates.Institute_Name}}</h6>
+              <h5 style="font-size: medium ;border-style: groove ;">Result :  {{certificates.Result}}  </h5> 
+               
+              {% endif %}
+
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          </div>
+  
+          
+      </div>
+    </div>
+  
+  </main>
+  
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+      <p> &copy; Shaikh Abu Faisal</p>
+     
+    </div>
+  </footer>
+
+{% endblock %}

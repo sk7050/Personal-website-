@@ -1,0 +1,136 @@
+{% extends 'base.html'%}
+
+{% block title%}
+My Interest
+{% endblock %}
+{% block contant%}
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    
+    [class*="col-"] {
+      float: left;
+      padding: 15px;
+    }
+    
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+    
+    html {
+      font-family: "Lucida Sans", sans-serif;
+    }
+    
+    .header {
+      background-color: #9933cc;
+      color: #ffffff;
+      padding: 15px;
+    }
+    
+    .menu ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .menu li {
+      padding: 8px;
+      margin-bottom: 7px;
+      background-color: #33b5e5;
+      color: #e9eef1;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+    
+    .menu li:hover {
+      background-color: #0099cc;
+    }
+    .card ul {
+      list-style-type: none;
+      margin: 1.5px ;
+      padding:5px;
+    }
+    .card li {
+      padding:2px;
+      margin-top: 2px;
+      margin-bottom: 3px;
+      margin-left: 2px;
+      margin-right: 2px;
+      background-color: #33b5e5;
+      color: #ffffff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+    .card img {
+  width:100%;
+  height: auto;
+}
+    
+    </style>
+    </head>
+    <body>
+    
+    <div class="header">
+      <h1>My Interest</h1>
+    </div>
+    
+    <div class="row">
+      <div class="col-3 menu">
+        <ul>
+          {% for i in interests %}
+           <a  href="{{i.pk}}"> <li style="color: white;">{{ i.Interest_Name }}</li></a>
+          {% endfor %}
+        </ul>
+      </div>
+    
+      <div class="col-9">
+        
+        <p>{{ hobbies }}</p>
+        {% for i in Personal_interest %}
+        <div class="card">
+          <ul>
+            <h1 style="font-family: 'Courier New', Courier, monospace;">{{i.Name}} </h1>
+             {{i.Date |date:"d-M-Y" }}
+          
+         
+          
+          {% if i.Interset_catagary_id == 3 or i.Interset_catagary_id == 4 %}
+          <li>
+            <img src="{{i.Img1_url}}"></li>
+          <li>
+            <iframe width="100%" height="500" src="{{i.vid_url}}">
+            </iframe>
+          </li>
+          {% else %}
+          <li> <img src="{{i.Img1_url}}"></li>
+          <li> <img src="{{i.Img_url}}"></li>
+        <li><img src="{{i.vid_url}}"></li>
+         
+        {% endif %}
+        
+            
+        </ul>
+        </div>
+        {% endfor %}
+        
+      </div>
+    </div>
+  </body>
+  
+{% endblock %}

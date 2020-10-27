@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{% block title%}
+    {% endblock %}
+  </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+  
+
+<nav class="navbar navbar-expand-sm  navbar-dark bg-dark ">
+   <!-- Brand/logo -->
+   <a class="navbar-brand" href="{% url 'Home'%}">
+    <img src="https://lh3.googleusercontent.com/dCECeYvL8RX2kIZBb6ZfnuUip3H3-wRhB8qflL0m7UNBe3yxXkdD8mz4GBdxdgk4OFqRbsqLa5uGJDlVVL_tdRuFgJIPA1kj6Z5tlsT7qigRfkq7pa1wMrpvSd4O23NIbyU70e0fMZRgJibNcSWezplpASwXT1VrUdAcaHV3JXEMXf1-HmOAWn6ZowS57PCBN7ciHhKX9YNX0EnN0ruuqvvatHp1lyfnERimqEdHgmOtKUrhM1d5PfHM4bFVu3XKS4XO-qbluU3_YblhupehvKjjGhfbkYvV-_F5bfC8nnMABq40X8rrltBhlTsBi9WMAx4fWkSSe12M9eZYas8kIQ2DDcLHO6_fJ_d6BC9gZoiHnQg_9kQSEFVVt6WUySl2fLeDLulodMBn5X46vxsDAxu5TPfkG0jL6PggXm7pXJvoaTygBfiUYk5EuQDy3ADxe2ALkCEkCc0imhVQzVpWxrLcEAE172P890zQEXWvB1-Qm_3ZZBqwzDa3W2XGS_eUOvtA4ny0W3tXj8jDn4FnE3PDHXFdOToFfiORRT_rpFKEIDUSAAyw6wQIPl1Arxv-EFIpp2ortjANqxB9oMLxeVP45hrqElzJfcY63ZMJGcsA-QopQSqR5bpnndwG6vcZjluC3mqvXgu9TDEprKhWv0Qh_-B2rmztyeK1AsSNGKcRqASod7SQZhrVirhP=w692-h576-no?authuser=0" alt="logo" style="height:50px; width:90px;"">
+   </a>
+   <!-- Links -->
+  <ul class="navbar-nav mr-auto ml-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'Home'%}">Home</a>
+    </li>
+    
+      <a class="nav-link" href="{% url 'About'%}">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'Personal_project'%}">Personal Projects</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/Personal_interest">Personal Interst</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/certificate">Faisal's Certificate</a>
+      </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/cv">Faisal's CV</a>
+      </li>
+  </ul>
+</nav>
+
+
+<div class="containe">
+{% block contant%}
+{% endblock %}
+</div>
+
+
+</body>
+</html>
